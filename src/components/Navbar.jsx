@@ -38,11 +38,13 @@ const Navbar = () => {
                 </Link>
               </li>
             )}
-            <li><a href="#productos-destacados">Nuestra Tienda</a></li>
-            <li><a href="#">Tutoriales</a></li>
-            <li><a href="#">Locales</a></li>
-            <li><a href="#">Nuestro Menú</a></li>
-            <li><a href="#">Trabajá con Nosotros</a></li>
+            <li><a href="/tienda.html">Nuestra Tienda</a></li>
+            <li><a href="/tutoriales.html">Tutoriales</a></li>
+            <li><a href="/locales.html">Locales</a></li>
+            <li><a href="/menu-tienda.html">Nuestro Menú</a></li>
+            <li><a href="/trabaja-en-tdc.html">Trabajá con Nosotros</a></li>
+            <li><a href="/franquicias.html">Franquicias</a></li>
+            <li><a href="/contacto.html">Contacto</a></li>
           </ul>
           <div className="navbar__iconos">
             <i className="fa-solid fa-magnifying-glass"></i>

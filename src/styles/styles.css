@@ -2103,3 +2103,8 @@ a:active {
   gap: 12px;
 }
 
+/* Forzar que SweetAlert2 aparezca por delante del Carrito y Modales */
+.swal2-container {
+  z-index: 100000 !important;
+}
+
