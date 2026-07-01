@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'https://mi-api-cacao-ritual.vercel.app/api';
 
 const fetchConToken = async (endpoint, options = {}) => {
   const token = localStorage.getItem('cacao_token');
