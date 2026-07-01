@@ -1,9 +1,13 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useCarrito } from '../context/CarritoContext';
-import { Toast, alertaExito } from '../utils/sweetalert';
+import { useAuth } from '../context/AuthContext';
+import { Toast, alertaExito, alertaConfirmacion } from '../utils/sweetalert';
 
 const Carrito = ({ isOpen, onClose }) => {
   const { items, total, eliminarItem, actualizarCantidad, vaciarCarrito } = useCarrito();
+  const { usuario } = useAuth();
+  const navigate = useNavigate();
 
   // Cerrar al pulsar Escape
   useEffect(() => {
@@ -21,7 +25,21 @@ const Carrito = ({ isOpen, onClose }) => {
 
   if (!isOpen) return null;
 
-  const handleFinalizarCompra = () => {
+  const handleFinalizarCompra = async () => {
+    if (!usuario) {
+      // Requerir inicio de sesión/registro
+      const confirm = await alertaConfirmacion(
+        'Inicio de sesión requerido',
+        'Para finalizar tu compra de Cacao Ritual, debes iniciar sesión o registrarte.',
+        'Iniciar Sesión / Registrarse'
+      );
+      if (confirm.isConfirmed) {
+        onClose();
+        navigate('/login');
+      }
+      return;
+    }
+
     alertaExito(
       '¡Compra Finalizada!',
       'Tu pedido de Cacao Ritual ha sido procesado. Nos pondremos en contacto a la brevedad para coordinar la entrega.'
