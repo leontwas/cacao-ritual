@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useCarrito } from '../context/CarritoContext';
 import Carrito from './Carrito';
+
+const navLinkClass = ({ isActive }) => isActive ? 'active' : undefined;
 
 const Navbar = () => {
   const { usuario, logout } = useAuth();
@@ -30,12 +32,12 @@ const Navbar = () => {
             <span></span>
           </label>
           <ul className="navbar__menu">
-            <li><Link to="/">Inicio</Link></li>
+            <li><NavLink to="/" end className={navLinkClass}>Inicio</NavLink></li>
             {usuario && usuario.rol === 'admin' && (
               <li>
-                <Link to="/administrar.html" style={{ color: 'var(--color-acento)', fontWeight: 'bold' }}>
+                <NavLink to="/administrar.html" className={navLinkClass} style={{ fontWeight: 'bold' }}>
                   Administrar
-                </Link>
+                </NavLink>
               </li>
             )}
             <li><a href="/tienda.html">Nuestra Tienda</a></li>
