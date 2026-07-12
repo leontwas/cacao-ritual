@@ -1585,6 +1585,32 @@ a:active {
     .seccion-locales-cta__subtitulo {
         font-size: 1.2rem;
     }
+
+    /* ---- Trabaja con nosotros ---- */
+    .puesto-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 22px 20px;
+    }
+
+    .puesto-item__info {
+        min-width: unset;
+        width: 100%;
+    }
+
+    .puesto-item__detalle {
+        width: 100%;
+    }
+
+    .puesto-item .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .formulario .btn--oscuro {
+        width: 100%;
+    }
 }
 
 /* Móvil 1 */
@@ -1633,6 +1659,19 @@ a:active {
     .footer__columna {
         min-width: 100%;
     }
+
+    /* ---- Trabaja con nosotros ---- */
+    .puestos-lista {
+        padding: 0 2%;
+    }
+
+    .puesto-item {
+        padding: 18px 16px;
+    }
+
+    .puesto-item__info h3 {
+        font-size: 0.95rem;
+    }
 }
 
 /* Móvil 2 */
@@ -1669,6 +1708,16 @@ a:active {
 
     .tarjeta-tutorial {
         width: 100%;
+    }
+
+    /* ---- Trabaja con nosotros ---- */
+    .beneficios__grid {
+        gap: 15px;
+    }
+
+    .puesto-item {
+        padding: 16px 14px;
+        gap: 12px;
     }
 }
 
