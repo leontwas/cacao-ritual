@@ -244,6 +244,7 @@ a:active {
     font-weight: 600;
     letter-spacing: 0.8px;
     text-transform: uppercase;
+    white-space: nowrap;
     padding-bottom: 4px;
     border-bottom: 2px solid transparent;
     transition: var(--transicion);
