@@ -30,7 +30,7 @@ const Navbar = () => {
             <span></span>
           </label>
           <ul className="navbar__menu">
-            <li><Link to="/">Inicio</Link></li>
+
             {usuario && usuario.rol === 'admin' && (
               <li>
                 <Link to="/administrar.html" style={{ color: 'var(--color-acento)', fontWeight: 'bold' }}>
@@ -38,7 +38,24 @@ const Navbar = () => {
                 </Link>
               </li>
             )}
-            <li><a href="/tienda.html">Nuestra Tienda</a></li>
+            <li>
+              <a
+                href="/#productos-destacados"
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (window.location.pathname !== '/') {
+                    navigate('/');
+                    setTimeout(() => {
+                      document.getElementById('productos-destacados')?.scrollIntoView({ behavior: 'smooth' });
+                    }, 300);
+                  } else {
+                    document.getElementById('productos-destacados')?.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
+                Nuestra Tienda
+              </a>
+            </li>
             <li><a href="/tutoriales.html">Tutoriales</a></li>
             <li><a href="/locales.html">Locales</a></li>
             <li><a href="/menu-tienda.html">Nuestro Menú</a></li>
