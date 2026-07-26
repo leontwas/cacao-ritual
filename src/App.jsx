@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { CarritoProvider } from './context/CarritoContext';
 
@@ -17,6 +17,22 @@ import Login from './pages/Login';
 import Registro from './pages/Registro';
 import PaginaAdmin from './pages/PaginaAdmin';
 import RutaAdmin from './components/RutaAdmin';
+
+// Componente para manejar redirecciones desde páginas estáticas HTML
+const RedirectHandler = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const route = params.get('route');
+    if (route) {
+      navigate(`/${route}`, { replace: true });
+    }
+  }, [location, navigate]);
+
+  return null;
+};
 
 // Componente agrupador de la página principal
 const Inicio = () => {
@@ -36,6 +52,7 @@ const Inicio = () => {
 function App() {
   return (
     <BrowserRouter>
+      <RedirectHandler />
       <AuthProvider>
         <CarritoProvider>
           <Navbar />
